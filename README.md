@@ -76,7 +76,7 @@ Training these models from scratch is expensive, so we use **transfer learning**
 
 ---
 
-## 📊 Example Folder Structure
+## 📊 Structure
 ```
 ├── data/
 │ ├── intents_train.csv
