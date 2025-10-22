@@ -1,126 +1,95 @@
-# Understanding customer
+# 🧠 Understanding Customer — Intent Classification
 
-## Intent Classification
+This project introduces **Deep Learning for Natural Language Processing (NLP)** with a focus on **Intent Classification** — identifying what a user wants based on their text input.  
+Example:  
+> “Is it raining?” → intent: *ask about weather*
 
-_Summary:_ This project is an introduction to deep learning and NLP: recurrent neural nets (RNN), LSTM, Transformer, BERT.
+---
 
-💡 [Tap here](https://new.oprosso.net/p/4cb31ec3f47a4596bc758ea1861fb624) **to leave your feedback on the project**. It's anonymous and helps our team improve your educational experience. We recommend you complete the survey immediately after completing the project.
+## 🚀 Overview
 
-## Contents
+You’ll explore how NLP models evolved from **rule-based chatbots** like ELIZA to modern **Transformer-based** architectures such as **BERT**.
 
-1. [Chapter I](#chapter-i) \
-   1.1. [Preamble](#preamble)
-2. [Chapter II](#chapter-ii) \
-   2.1. [Introduction](#introduction)
-3. [Chapter III](#chapter-iii) \
-   3.1. [Rules of project](#rules-of-project)
-4. [Chapter IV](#chapter-iv) \
-   4.1. [Instructions](#instructions)
-5. [Chapter V](#chapter-v) \
-   5.1. [Mandatory part](#mandatory-part)
-6. [Chapter VI](#chapter-vi) \
-   6.1. [Bonus part](#bonus-part)
+This project provides a **hands-on experience** with:
+- **Recurrent Neural Networks (RNN)**
+- **Long Short-Term Memory (LSTM)**
+- **Transformers**
+- **BERT (Bidirectional Encoder Representations from Transformers)**
 
-## Chapter I
+and introduces key NLP concepts such a
 
-### Preamble
+---
 
-The story of humans trying to create an AI agent that can have a meaningful conversation with us began many years ago. One of the most prominent examples is ELIZA. It is an NLP computer program created in the mid-60s that simulated conversations with a therapist.
+## Chapter I – Preamble
 
-![0](./misc/images/0.png)
+The journey of conversational AI began with **ELIZA**, a 1960s chatbot that simulated a therapist.  
+ELIZA worked by identifying **keywords** and applying **transformation rules** to generate responses.
 
-The author of the program identified 5 main problems that needed to be solved to create such a program: 1) the identification of critical words; 2) the discovery of a minimal context; 3) the choice of appropriate transformations; 4) the generation of responses appropriate to the transformation; or 5) in the absence of critical words and the provision of an ending capacity for ELIZA scripts. He solved them through a script of instructions on how to respond to user input.
+Today’s chatbots follow similar principles:
+1. **Classify user intent** – What does the user want?  
+2. **Generate or retrieve a relevant response.**
 
-Today, chatbots are ubiquitous, but the principles are still almost the same when we talk about chatbots that help automate support. The first thing we need to do is classify the intent — what the user wants from us. The phrases can be
-"What's the weather like?" or "What's the temperature right now?" or "Is it raining?" but the intent is still the same — the user is interested in the weather. The second thing is that we need to generate a response (or extract it from somewhere) and send it back to the user.
+Example:  
+> “What’s the temperature right now?” and “Is it raining?” → both map to the same intent: *ask about weather.*
 
-## Chapter II
+---
 
-### Introduction
+## Chapter II – Introduction
 
-You are already familiar with the basics of NLP and neural networks. In this project, you will work with more advanced people — applying deep learning algorithms to an intent classification problem.
+### 🧠 Why Specialized Architectures for Text?
 
-In deep learning, we have specific architectures for NLP tasks. Why is that? Well, text is a different data structure than ordinary tables. It is sequential. The order of words matters. It has context, which may appear in one sentence and then be used in another. Generic architectures like fully connected neural networks do not take this into account.
+Unlike tabular data, text is **sequential** — order matters.  
+Deep learning offers several architectures for handling text:
 
-One architecture that can help us solve NLP problems better is RNN (recurrent neural net). It is sequential. It can work with text word by word or letter by letter. But it has no memory to store any useful context.
+- **RNN:** Processes sequences but forgets long-term context.  
+- **LSTM:** Adds “memory gates” to retain context.  
+- **Transformer:** Uses an **attention mechanism** to process sequences in parallel, understanding context globally.  
+- **BERT:** A bidirectional Transformer pre-trained for deep contextual understanding.
 
-So another architecture was invented — [LSTM](https://colah.github.io/posts/2015-08-Understanding-LSTMs/) (Long Short-Term Memory). It is even more complicated. What it does is it tries to find optimal weights for different gates that are used to send the signal on, store it, stop it, etc.
+Training these models from scratch is expensive, so we use **transfer learning** — fine-tuning pre-trained models on our data for powerful results.
 
-Both architectures are time-consuming because of their sequential nature. And time is important — because the more iterations you can do in time, the faster you get good results.
+---
 
-The breakthrough came with the Transformers and their attention mechanism. [Transformers](https://medium.com/mlearning-ai/long-short-term-memory-networks-are-dying-whats-replacing-it-5ff3a99399fe)
-do not use recursion. Instead of processing each word sequentially, Transformers process the entire sequence at once to create an "attention matrix" where each output is a weighted sum of the inputs. It is a faster architecture, and it works better with context.
+## Chapter III – Rules of Project
 
-The most prominent example of the Transformer architecture is [BERT](https://jalammar.github.io/illustrated-bert/) (Bidirectional En-coder Representations from Transformers). The main technical innovation of BERT is the application of Transformer's bidirectional training to language modeling.
+- Use **Python 3**.  
+- You can organize your files freely, but keep the structure clean.  
+- You may use **Google Colab** for training (GPU recommended).  
+- Place datasets inside the `data/` folder.  
+- Keep a **research journal** to track model changes, hyperparameters, and metrics.
 
-There are some other architectures that show promising results, but they are beyond the scope of this project. However, one fact worth mentioning is that training such models can be [quite expensive](https://syncedreview.com/2019/06/27/the-staggering-cost-of-training-sota-ai-models/). But there is a way — transfer learning. You can use a pre-trained model and fine-tune it on your dataset, optimizing only a small fraction of the weights. This lifehack can produce shockingly good results.
+---
 
-This was a short introduction to deep learning and NLP. It covers all the important stuff from the helicopter view. Now you know where to start your own journey of mastering the skills and knowledge of this field.
+## Chapter IV – Instructions
 
-## Chapter III
+1. Use any framework: **PyTorch**, **TensorFlow**, or **Keras**.  
+2. Save your trained model in **Pickle (.pkl)** format.  
+3. The notebook(s) must include:
+   - Data preprocessing  
+   - Model training (RNN, LSTM, BERT)  
+   - Evaluation (accuracy ≥ 0.8 on test set)  
+4. Predictions should be saved to `intents.csv`.  
 
-### Rules of project
+> **Fallback Intent:**  
+> Include handling for unseen queries (e.g., “I couldn’t understand you.”).  
+> This improves chatbot robustness and evaluation score.
 
-The goal of this project is to give you a first approach to Deep learning algorithms applied to NLP tasks. You will try to preprocess text data and train different architectures for intent classification: RNN, LSTM, BERT.
+---
 
-## Chapter IV
-
-### Instructions
-
-* This project will be evaluated by humans only. You are free to organize and name your files as you wish.
-* Here and throughout, we use Python 3 as the only correct version of Python.
-* For training deep learning algorithms you can try [Google Colab](https://colab.research.google.com/). It offers free kernels (runtime) with GPU that are faster than CPU for such tasks.
-* The standard does not apply to this project. However, you are asked to be clear and structured in your source code design.
-* Place the datasets in the **data** subfolder.
-
-## Chapter V
-
-### Mandatory part
-
-#### a. Task
-
-In this project, you will work on intent classification. This task may be part of a larger project to create a chatbot or virtual assistant. The problem is that people may use different phrases and words to ask for something that is really the same in terms of the answer. "Is it raining?" or "What is the temperature right now?" can lead to a weather application or a weather forecast. The better you can classify intentions, the more impact you can have with a chatbot or virtual assistant.
-
-To do this, you need to try different architectures:
-
-1. RNN,
-2. LSTM,
-3. BERT.
-
-#### b. Dataset
-
-You will work with the dataset of intents used in a bike shop chatbot. The phrases are labeled with intents in the training file. And you have to make predictions for the test file.
-
-> **Note:** You can find the dataset on the project page:
-> 1. intents_test.csv;
-> 2. intents_train.csv.
-
-#### c. Implementation
-
-You can work in the [Google Colab](https://colab.research.google.com/). It provides Jupyter notebooks with GPU Runtime. GPU is more efficient than CPU for Deep learning tasks. You can install any additional packages directly from the cells in the notebooks.
-
-You can use any framework you like: PyTorch, TensorFlow, Keras, etc.
-
-**Fallback Intent**
-
-In the test file, there are several sentences that are not from any intent from the train subset. In our hidden file, they are labeled "Fallback Intent". This is widely used in chatbots. If your chatbot is "not sure" about its prediction, it's a good practice to send back to the user something like "I couldn't understand you. Please rephrase." or simply redirect the request to a human. Keep this in mind, because the score of your predictions will depend on the fallback intent as long as it exists in the test file.
-
-**Research Journal**
-
-You should keep a research journal. You will try different architectures with different weights, number of layers, etc. It is easy to get lost in the chaos and lose track of where your best solutions are. Your journal should track all the changes you make: architecture, weights, preprocessing, number of layers, framework, etc. and of course the metrics on the training and validation subset.
-
-#### d. Submission
-
-Save your model in Pickle format. Your peer will load it and use it to make predictions again for the test dataset. The predictions should be saved in a file named `intents.csv`.
-
-You must achieve an accuracy of at least 0.8 on the test dataset.
-
-Your repository should contain one or more notebooks with your solutions.
-
-## Chapter VI
-
-### Bonus Part
-
-* Try using CNNs for intent classification.
-* Try to extend the training dataset by adding more different phrases and corresponding intents to get better results.
-* Try to get an even better accuracy on the test dataset — 0.873.
+## 📊 Example Folder Structure
+```
+├── data/
+│ ├── intents_train.csv
+│ ├── intents_test.csv
+├── notebooks/
+│ ├── rnn_model.ipynb
+│ ├── lstm_model.ipynb
+│ ├── bert_model.ipynb
+├── models/
+│ ├── rnn.pkl
+│ ├── lstm.pkl
+│ ├── bert.pkl
+├── intents.csv
+├── research_journal.md
+└── README.md
+```
