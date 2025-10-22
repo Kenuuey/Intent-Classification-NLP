@@ -5,19 +5,20 @@ Example:
 > “Is it raining?” → intent: *ask about weather*
 
 
-## Overview
+## 🧩 Overview
 
 We explore how NLP models evolved from **rule-based chatbots** like ELIZA to modern **Transformer-based** architectures such as **BERT**.
 
-This project provides a **hands-on experience** with key deep learning models for text understanding::
+This project offers **hands-on experience** with key deep learning architectures for text understanding:
 - **Recurrent Neural Networks (RNN)**
-- **Long Short-Term Memory (LSTM)**
+- **Long Short-Term Memory (LSTM)** networks
 - **Transformers**
 - **BERT (Bidirectional Encoder Representations from Transformers)**
 
-and introduces key NLP concepts such as **sequence modeling**, **context understanding**, and **transfer learning**.
+It also introduces essential NLP concepts such as **sequence modeling**, **context representation**, and **transfer learning**.
 
-## Preamble
+
+## 💬 Preamble
 
 The journey of conversational AI began with **ELIZA**, a 1960s chatbot that simulated a therapist.  
 ELIZA worked by identifying **keywords** and applying **transformation rules** to generate responses.
@@ -30,22 +31,22 @@ Example:
 > “What’s the temperature right now?” and “Is it raining?” → both map to the same intent: *ask about weather.*
 
 
-## Introduction
+## 🔍 Introduction
 
 ### Why Specialized Architectures for Text?
 
-Unlike tabular data, text is **sequential** — order matters.  
-Deep learning offers several architectures for handling text:
+Unlike tabular data, text is **sequential** — word order and context matter.  
+Deep learning provides several architectures that effectively model sequences:
 
-- **RNN:** Processes sequences but forgets long-term context.  
-- **LSTM:** Adds “memory gates” to retain context.  
-- **Transformer:** Uses an **attention mechanism** to process sequences in parallel, understanding context globally.  
-- **BERT:** A bidirectional Transformer pre-trained for deep contextual understanding.
+- **RNN:** Processes sequences step by step but struggles with long-term dependencies.  
+- **LSTM:** Introduces *memory gates* to retain and control contextual information.  
+- **Transformer:** Uses an **attention mechanism** to process entire sequences in parallel, improving speed and context handling.  
+- **BERT:** A **bidirectional Transformer** that learns deep contextual representations of language.
 
-Training these models from scratch is expensive, so we use **transfer learning** — fine-tuning pre-trained models on our data for powerful results.
+Training such models from scratch is computationally expensive, so we leverage **transfer learning** — fine-tuning pre-trained models on domain-specific data for powerful results.
 
 
-## 📊 Project Structure
+## 📂 Project Structure
 ```
 ├── data/
 │ ├── intents_train.csv
