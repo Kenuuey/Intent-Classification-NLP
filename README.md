@@ -52,14 +52,11 @@ Training such models from scratch is computationally expensive, so we leverage *
 │ ├── intents_train.csv
 │ ├── intents_test.csv
 ├── notebooks/
-│ ├── rnn_model.ipynb
-│ ├── lstm_model.ipynb
-│ ├── bert_model.ipynb
+│ ├── solution.ipynb
 ├── models/
 │ ├── rnn.pkl
 │ ├── lstm.pkl
-│ ├── bert.pkl
 ├── intents.csv
-├── research_journal.md
+├── requirements.txt
 └── README.md
 ```
